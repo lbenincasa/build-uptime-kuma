@@ -51,16 +51,16 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: louislam/uptime-kuma
-        path: _main_
+#        path: _main_
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 #    - run: npm ci
-    - run: dir _main_
+    - run: dir 
     - run: npm install npm -g
-    - run: cd _main_/uptime-kuma
+#    - run: cd uptime-kuma
     - run: npm run setup
     - run: dir
 
