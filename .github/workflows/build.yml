@@ -51,7 +51,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: louislam/uptime-kuma
-      path: _main_
+        path: _main_
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
