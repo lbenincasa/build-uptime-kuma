@@ -61,6 +61,8 @@ jobs:
     - run: dir 
     - run: npm install npm -g
 #    - run: cd uptime-kuma
-    - run: npm run setup
+#    - run: npm run setup
+    - run: npm ci --production
+    - run: npm run download-dist
     - run: dir
 
