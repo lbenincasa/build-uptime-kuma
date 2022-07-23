@@ -70,13 +70,13 @@ jobs:
     - name: zip everything...
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "release-${{ github.event.inputs.tags }}.zip"
+        artifacts: "release.zip"
         type: zip
         directory: .
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: "release-${{ github.event.inputs.tags }}.zip"
+        files: "release.zip"
           
                   
 
