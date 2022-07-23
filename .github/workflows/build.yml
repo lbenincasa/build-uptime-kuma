@@ -15,9 +15,15 @@ on:
         - info
         - warning
         - debug 
-      tags:
-        description: 'Tag to build'
+      uptimeTag:
+        description: 'Uptime Tag to build'
         required: false
+        default: 'latest'
+        type: string
+      relTag:
+        description: 'Release Tag'
+        required: true
+        default: 'debug'
         type: string
       push:
         description: 'Push on Docker Hub'
@@ -51,8 +57,8 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: louislam/uptime-kuma
-        if: ${{ github.event.inputs.tags > 0 }}
-        ref: ${{ github.event.inputs.tags }} 
+        if: ${{ github.event.inputs.uptimeTag != 'latest' }}
+        ref: ${{ github.event.inputs.uptimeTag }} 
 #        path: _main_
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -77,6 +83,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: "release.zip"
+        tag_name: ${{ github.event.inputs.relTag }}
           
                   
 
