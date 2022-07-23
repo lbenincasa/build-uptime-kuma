@@ -68,11 +68,11 @@ jobs:
     - run: npm run download-dist
     - run: dir
     - name: zip everything...
-      uses: ncipollo/release-action@v1
+      uses: thedoctor0/zip-release@main
       with:
         artifacts: "release.zip"
-        type: zip
-        directory: .
+        path: '.'
+        type: 'zip'
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
