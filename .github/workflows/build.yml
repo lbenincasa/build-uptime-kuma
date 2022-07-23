@@ -67,4 +67,16 @@ jobs:
     - run: npm ci --production
     - run: npm run download-dist
     - run: dir
+    - name: zip everything...
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "release-${{ github.event.inputs.tags }}.zip"
+        type: zip
+        directory: .
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "release-${{ github.event.inputs.tags }}.zip"
+          
+                  
 
