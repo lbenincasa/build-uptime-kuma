@@ -76,13 +76,13 @@ jobs:
     - name: zip everything...
       uses: thedoctor0/zip-release@main
       with:
-        artifacts: "release.zip"
+        filename: 'release-win.zip'
         path: '.'
         type: 'zip'
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: "release.zip"
+        files: "release-win.zip"
         tag_name: ${{ github.event.inputs.relTag }}
           
                   
