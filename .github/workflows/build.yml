@@ -76,7 +76,8 @@ jobs:
     - name: zip everything...
       uses: thedoctor0/zip-release@main
       with:
-        filename: 'release-win.zip'
+#        filename: 'release-win.zip'
+        filename: release-win_${{ github.event.inputs.uptimeTag }}.zip        
         path: '.'
         type: 'zip'
     - name: Release
